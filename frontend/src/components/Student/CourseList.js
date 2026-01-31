@@ -16,6 +16,7 @@ function CourseList() {
   useEffect(() => {
     loadCourses();
     loadUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadCourses = async () => {

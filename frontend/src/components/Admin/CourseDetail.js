@@ -27,6 +27,7 @@ function CourseDetail() {
     if (!isNewCourse) {
       loadCourse();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const loadCourse = async () => {
