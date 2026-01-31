@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Course registration system for C-level membership program",
   "scripts": {
-    "build": "cd frontend && npm install && npm run build"
+    "build": "npm install --prefix frontend && npm run build --prefix frontend && cp -r frontend/build/* .",
+    "postbuild": "echo 'Build completed'"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.93.3",
