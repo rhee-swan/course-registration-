@@ -1,24 +1,24 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('../backend/config/db');
 
 const app = express();
-
-// Connect to MongoDB
-connectDB();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/api/auth', require('../backend/routes/auth'));
-app.use('/api/courses', require('../backend/routes/courses'));
-app.use('/api/enrollment', require('../backend/routes/enrollment'));
+// Routes - Using Supabase versions
+app.use('/api/auth', require('../backend/routes/auth-supabase'));
+app.use('/api/courses', require('../backend/routes/courses-supabase'));
+app.use('/api/enrollment', require('../backend/routes/enrollment-supabase'));
 
 // Health check
 app.get('/api', (req, res) => {
-  res.json({ message: 'Course Registration API is running on Vercel' });
+  res.json({
+    message: 'Course Registration API is running with Supabase',
+    status: 'ok'
+  });
 });
 
 // Error handling middleware
